@@ -27,11 +27,15 @@ CORES = {
 # ============================================================
 # CARREGA MODELO E BANCO — mesmos artefatos do notebook
 # ============================================================
+import os
+
 @st.cache_resource
 def carregar_modelo():
-    modelo   = joblib.load('modelo_score_credito.pkl')
-    scaler   = joblib.load('scaler_score_credito.pkl')
-    features = joblib.load('features_score_credito.pkl')
+    # Caminho absoluto relativo ao app.py — funciona local e na nuvem
+    base = os.path.dirname(os.path.abspath(__file__))
+    modelo   = joblib.load(os.path.join(base, 'modelo_score_credito.pkl'))
+    scaler   = joblib.load(os.path.join(base, 'scaler_score_credito.pkl'))
+    features = joblib.load(os.path.join(base, 'features_score_credito.pkl'))
     return modelo, scaler, features
 
 @st.cache_resource
