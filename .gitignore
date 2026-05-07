@@ -1,0 +1,13 @@
+# Credenciais — nunca subir
+.env
+
+# Modelos treinados (opicional, são grandes)
+*.pkl
+
+# Dados sensíveis
+dados_credito.csv
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
